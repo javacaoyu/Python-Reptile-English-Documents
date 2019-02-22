@@ -56,7 +56,7 @@ for t in types:
                 f_name = func.write_to_file(content, title, chapter)
                 print(title + "'s chapter: " + chapter + ' is already writed to file: ' + f_name)
                 print('Go to next.......')
-        used[t + '_' + str(novel_num)] = title + '|||' + url        # Gathered are need save in used map.
+            used[t + '_' + str(novel_num)] = title + '|||' + url        # Gathered are need save in used map.
         novel_num += 1
     print('Type of ' + t + ' has already gathered. Go to next type.......')
 print('All type are already gathered.')
