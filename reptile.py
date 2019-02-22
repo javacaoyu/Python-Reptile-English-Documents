@@ -18,7 +18,7 @@ last_type = None
 last_novel_num = 0
 if (len(sys.argv) > 1):
     last_type = sys.argv[1]
-    last_novel_num = sys.argv[2]
+    last_novel_num = int(sys.argv[2])
 
 # Init used
 for t in types: used[t] = list()
