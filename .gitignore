@@ -1,4 +1,6 @@
 tmp/
 *.pyc
 .vscode/
-
+/novel/
+.DS_Store
+nohup.out
