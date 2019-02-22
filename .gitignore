@@ -4,3 +4,4 @@ tmp/
 /novel/
 .DS_Store
 nohup.out
+__pycache__/

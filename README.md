@@ -12,3 +12,5 @@ Because i don't know some reptile framwork to do this fairly well. So i just use
 Welcome some body push some pull-requests to help me optimize it and let me learn more.
 
 Thanks.
+
+Run it: python3 reptile.py (In you relative path)
