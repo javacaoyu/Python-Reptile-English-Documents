@@ -12,13 +12,23 @@ max_page = 1000000
 novel_num = 1
 max_novel = 100000
 
+# last_type = None
+last_type = 'jingdian'
+last_novel_num = 77
+
 # Init used
 for t in types: used[t] = list()
 
 # Start
 for t in types:
+    if last_type and not t.__eq__(last_type):
+        continue
+    
     print('Preparing gather type of: ' + t + '.......')
     while True:
+        if last_novel_num > 0:
+            if novel_num <= last_novel_num:
+                continue
         print('---------------------')
         if novel_num > max_novel:
             print("Max novel over on " + str(max_novel) + ", finish this type of " + t)
@@ -41,6 +51,7 @@ for t in types:
                 f_name = func.write_to_file(content, title, chapter)
                 print(title + "'s chapter: " + chapter + ' is already writed to file: ' + f_name)
                 print('Go to next.......')
+        used[t + '_' + str(novel_num)] = title + '|||' + url        # Gathered are need save in used map.
         novel_num += 1
     print('Type of ' + t + ' has already gathered. Go to next type.......')
 print('All type are already gathered.')
