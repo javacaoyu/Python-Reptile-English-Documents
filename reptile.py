@@ -32,6 +32,7 @@ for t in types:
     while True:
         if last_novel_num > 0:
             if novel_num <= last_novel_num:
+                novel_num += 1
                 continue
         print('---------------------')
         if novel_num > max_novel:
