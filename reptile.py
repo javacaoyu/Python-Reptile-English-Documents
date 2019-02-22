@@ -1,6 +1,7 @@
 # coding:utf8
 import requests
 import func
+import sys
 
 __author__ = 'CaoYu'
 
@@ -13,8 +14,11 @@ novel_num = 1
 max_novel = 100000
 
 # last_type = None
-last_type = 'jingdian'
-last_novel_num = 77
+last_type = None
+last_novel_num = 0
+if (len(sys.argv) > 1):
+    last_type = sys.argv[1]
+    last_novel_num = sys.argv[2]
 
 # Init used
 for t in types: used[t] = list()
