@@ -62,7 +62,13 @@ replaces = ['&quot;', '&nbsp;', '<div>', '</div>', '<br type="_moz" />', '</scri
 def get_content(url):
     content = list()
     response = requests.get(url)
-    response.encoding = requests.utils.get_encodings_from_content(response.text)[0]
+    try:
+        response.encoding = requests.utils.get_encodings_from_content(response.text)[0]
+    except IndexError as e:
+        print(e)
+        print("Get response charset has error, skip this chapter.")
+        return content
+
     text = response.text
     text = text[text.find('class="text" id="tt_text"'):]
     comment_start = False

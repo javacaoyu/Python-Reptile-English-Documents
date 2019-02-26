@@ -2,6 +2,7 @@
 import requests
 import func
 import sys
+import time
 
 __author__ = 'CaoYu'
 
@@ -30,6 +31,7 @@ for t in types:
     
     print('Preparing gather type of: ' + t + '.......')
     while True:
+        time.sleep(2)
         if last_novel_num > 0:
             if novel_num <= last_novel_num:
                 novel_num += 1
@@ -51,8 +53,11 @@ for t in types:
             print("Found a active page, title is: " + title + ', url: ' + url + ', preparing gather it.')
             chapters = func.get_chapter_list(url + '/list.html')
             for chapter in chapters.keys():
+                time.sleep(2)
                 print('Preparing gather chapter: ' + chapter + ' of novel: ' + title + '......')
                 content = func.get_content(url + '/' + chapters[chapter])
+                if len(content) == 0:
+                    continue
                 f_name = func.write_to_file(content, title, chapter)
                 print(title + "'s chapter: " + chapter + ' is already writed to file: ' + f_name)
                 print('Go to next.......')
